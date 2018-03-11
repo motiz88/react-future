@@ -8,6 +8,8 @@ function initCache() {
 }
 initCache();
 
+export { cache };
+
 export function createFetcher(fetch) {
     const res = createResource(fetch);
     return {

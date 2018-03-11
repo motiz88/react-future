@@ -1,7 +1,7 @@
 import React from 'react';
-import { createFetcher } from './future';
+import { createAutoFetcher } from './fantasy';
 
-const imageFetcher = createFetcher(
+const imageFetcher = createAutoFetcher(
     (src) => new Promise(resolve => {
         const image = new Image();
         image.onload = () => resolve(src);
@@ -10,5 +10,5 @@ const imageFetcher = createFetcher(
 );
 
 export default function Img(props) {
-    return <img src={imageFetcher.read(props.src)} alt={props.alt} {...props} />;
+    return <img src={imageFetcher[props.src]} alt={props.alt} {...props} />;
 }

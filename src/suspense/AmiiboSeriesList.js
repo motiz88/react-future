@@ -1,13 +1,13 @@
 import React from 'react';
-import { createFetcher } from './future';
+import { createAutoFetcher } from './fantasy';
 
 import { fetchAmiiboSeries } from './api';
 import AmiiboSerie from './AmiiboSerie';
 
-const amiiboSeriesFetcher = createFetcher(fetchAmiiboSeries);
+const amiiboSeriesFetcher = createAutoFetcher(fetchAmiiboSeries);
 
 export default function AmiiboSeriesList({ onAmiiboSerieClick, loadingId }) {
-    const series = amiiboSeriesFetcher.read('amiiboSeries');
+    const series = amiiboSeriesFetcher['amiiboSeries'];
     const listItems = series.amiibo.map(serie =>
         <AmiiboSerie key={serie.key}
                      serie={serie}
